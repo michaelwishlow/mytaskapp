@@ -9,20 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var task_service_1 = require("../../services/task.service");
-var TasksComponent = (function () {
-    function TasksComponent(taskService) {
-        this.taskService = taskService;
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+var TaskService = (function () {
+    function TaskService(http) {
+        this.http = http;
+        console.log('Task Service Initialized...');
     }
-    return TasksComponent;
+    return TaskService;
 }());
-TasksComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'tasks',
-        templateUrl: 'tasks.component.html'
-    }),
-    __metadata("design:paramtypes", [task_service_1.TaskService])
-], TasksComponent);
-exports.TasksComponent = TasksComponent;
-//# sourceMappingURL=tasks.component.js.map
+TaskService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], TaskService);
+exports.TaskService = TaskService;
+//# sourceMappingURL=task.service.js.map

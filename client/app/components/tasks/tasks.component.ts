@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {TaskService} from '../../services/task.service';
+
 
 @Component({
   moduleId: module.id,
@@ -6,4 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: 'tasks.component.html'
 })
 
-export class TasksComponent { }
+export class TasksComponent { 
+			constructor(private taskService:TaskService){
+
+			}
+}
+
