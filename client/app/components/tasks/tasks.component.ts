@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   selector: 'tasks',
   templateUrl: 'tasks.component.html'
 })
+
 export class TasksComponent { }
