@@ -12,7 +12,12 @@ var core_1 = require("@angular/core");
 var task_service_1 = require("../../services/task.service");
 var TasksComponent = (function () {
     function TasksComponent(taskService) {
+        var _this = this;
         this.taskService = taskService;
+        this.taskService.getTasks()
+            .subscribe(function (tasks) {
+            _this.tasks = tasks;
+        });
     }
     return TasksComponent;
 }());
