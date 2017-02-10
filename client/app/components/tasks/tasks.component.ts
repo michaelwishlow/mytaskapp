@@ -18,6 +18,21 @@ export class TasksComponent {
 							.subscribe(tasks=>  {
 									this.tasks = tasks;
 							});
+			}
+
+			addTask(event){
+					event.preventDefault();
+					//console.log(this.title);
+					var newTask ={
+							title: this.title,
+							isDone: false
+					}
+
+					this.taskService.addTask(newTask)
+							.subscribe(task => {
+									this.tasks.push(task);
+									this.title = ' ';
+							});
 
 			}
 }

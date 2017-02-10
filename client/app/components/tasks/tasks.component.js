@@ -19,6 +19,20 @@ var TasksComponent = (function () {
             _this.tasks = tasks;
         });
     }
+    TasksComponent.prototype.addTask = function (event) {
+        var _this = this;
+        event.preventDefault();
+        //console.log(this.title);
+        var newTask = {
+            title: this.title,
+            isDone: false
+        };
+        this.taskService.addTask(newTask)
+            .subscribe(function (task) {
+            _this.tasks.push(task);
+            _this.title = ' ';
+        });
+    };
     return TasksComponent;
 }());
 TasksComponent = __decorate([

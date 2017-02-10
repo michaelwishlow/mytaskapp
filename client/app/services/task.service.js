@@ -20,6 +20,12 @@ var TaskService = (function () {
         return this.http.get('http://localhost:3000/api/tasks')
             .map(function (res) { return res.json(); });
     };
+    TaskService.prototype.addTask = function (newTask) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:3000/api/task', JSON.stringify(newTask), { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     return TaskService;
 }());
 TaskService = __decorate([
