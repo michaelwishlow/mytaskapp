@@ -30,6 +30,12 @@ var TaskService = (function () {
         return this.http.delete('/api/task/' + id)
             .map(function (res) { return res.json(); });
     };
+    TaskService.prototype.updateStatus = function (task) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.put('/api/task/' + task._id, JSON.stringify(task), { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     return TaskService;
 }());
 TaskService = __decorate([

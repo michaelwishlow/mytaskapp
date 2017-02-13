@@ -22,7 +22,6 @@ var TasksComponent = (function () {
     TasksComponent.prototype.addTask = function (event) {
         var _this = this;
         event.preventDefault();
-        //console.log(this.title);
         var newTask = {
             title: this.title,
             isDone: false
@@ -30,7 +29,7 @@ var TasksComponent = (function () {
         this.taskService.addTask(newTask)
             .subscribe(function (task) {
             _this.tasks.push(task);
-            _this.title = ' ';
+            _this.title = '';
         });
     };
     TasksComponent.prototype.deleteTask = function (id) {
@@ -43,6 +42,16 @@ var TasksComponent = (function () {
                     }
                 }
             }
+        });
+    };
+    TasksComponent.prototype.updateStatus = function (task) {
+        var _task = {
+            _id: task._id,
+            title: task.title,
+            isDone: !task.isDone
+        };
+        this.taskService.updateStatus(_task).subscribe(function (data) {
+            task.isDone = !task.isDone;
         });
     };
     return TasksComponent;
